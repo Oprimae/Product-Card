@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+  --primary-bg: #0f0e17;
+  --secondary-bg: #17161f;
+  --shadow-bg: rgba(0, 0, 0, 0.25);
+  --button: #2563eb;
+
+  --headline: #fffffe;
+  --paragraph: #a7a9be;
+
+  --radius: 10px;
+  --padding: 15px;
+  --margin: 10px;
+  --gap: 5px;
+  --transition: 0.75s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: var(--primary-bg);
+  color: var(--paragraph);
+  font-family: 'Roboto', sans-serif;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  min-height: 150px;
+  padding: var(--padding);
+  background: var(--secondary-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.card .card-image {
+  width: 100%;
+  padding: var(--padding);
+  background: var(--shadow-bg);
+  border-radius: calc(var(--radius) - 3px);
+}
+.card .card-image .product-image {
+  width: 100%;
+  height: 150px;
+  background-image: url('./../img/default.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.card .card-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: var(--margin) 0;
+  gap: var(--gap);
+}
+.card .card-container .product-brand {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.card .card-container .product-name {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--headline);
+}
+.card .card-container .product-price {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+.card .card-container .product-sizes {
+  position: relative;
+  display: flex;
+  padding: 0 10%;
+  justify-content: space-between;
+}
+.card .card-container .product-sizes .product-size {
+  padding: var(--gap);
+  background: var(--shadow-bg);
+  border-radius: calc(var(--radius) - 3px);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.card .card-container .product-sizes .product-size:hover {
+  color: var(--headline);
+}
+.card .card-container .product-sizes .product-size.selected {
+  background: var(--button);
+  color: var(--headline);
+  font-weight: 500;
+}
+.card .card-button {
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+  background: var(--shadow-bg);
+  border-radius: calc(var(--radius) - 3px);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: var(--headline);
+  text-transform: uppercase;
+  text-align: center;
+  overflow: hidden;
+  transition: var(--transition);
+  z-index: 1;
+  cursor: pointer;
+}
+.card .card-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--button);
+  transition: all var(--transition) linear;
+  z-index: -1;
+}
+.card .card-button:hover::before {
+  width: 100%;
+}
+
+#popup {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: calc(var(--padding) * 2) var(--padding);
+  background: var(--secondary-bg);
+  font-size: 20px;
+  gap: calc(var(--gap) * 5);
+  border-radius: var(--radius);
+  opacity: 0;
+  z-index: 10;
+}
+#popup.show {
+  display: flex;
+  opacity: 1;
+}
+#popup i {
+  font-size: 150px;
+}
