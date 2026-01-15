@@ -33,4 +33,4 @@ The project follows a simple and readable structure:
 - JavaScript for interactions and dynamic behavior
 
 ## 📸 Screenshot
-![Product Card Screenshot](https://github.com/ashbolic/Product-Card/blob/main/product-card.jpg)
+![Product Card Screenshot](https://github.com/Oprimae/Product-Card/blob/main/product-card.jpg)
